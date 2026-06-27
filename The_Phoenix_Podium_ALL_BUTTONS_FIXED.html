@@ -1,116 +1,703 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The Phoenix Podium</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Phoenix Podium v2.0</title>
 <style>
-:root{--alabaster:#F6F4F0;--ink:#2C3A4F;--periwinkle:#A3B8CC;--sprout:#A8DADC;--white:#fff;--muted:#607086;--danger:#9B3D3D;--shadow:0 14px 34px rgba(44,58,79,.12);--radius:22px}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:105px}body{margin:0;font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",Arial,Helvetica,sans-serif;background:linear-gradient(135deg,var(--alabaster),#fff 58%,#DDE9EF);color:var(--ink);line-height:1.65;letter-spacing:normal;word-spacing:normal;text-align:left;font-kerning:normal}p,li,label,details,summary{letter-spacing:normal;word-spacing:normal;text-align:left}h1,h2,h3,h4{letter-spacing:-.02em;word-spacing:normal;line-height:1.18}header{position:sticky;top:0;z-index:100;background:rgba(246,244,240,.94);backdrop-filter:blur(10px);box-shadow:0 3px 16px rgba(44,58,79,.1)}.nav{max-width:1180px;margin:auto;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}.logo{font-size:1.7rem;font-weight:950;color:var(--ink)}nav{display:flex;gap:10px;flex-wrap:wrap}nav a{text-decoration:none;font-weight:850;padding:8px 10px;border-radius:999px;color:var(--ink)}nav a:hover{background:var(--periwinkle)}main{max-width:1180px;margin:auto}section{padding:52px 22px}.hero{min-height:72vh;display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}.hero h1{font-size:clamp(2.7rem,6vw,5.5rem);margin:0 0 18px}.hero p,.section-intro{color:var(--muted);font-size:1.08rem;max-width:820px}.badge{display:inline-block;background:var(--sprout);padding:8px 14px;border-radius:999px;font-weight:900;margin-bottom:16px}.btn{border:0;background:var(--ink);color:var(--alabaster);padding:12px 18px;border-radius:14px;font-weight:900;cursor:pointer;display:inline-block;text-decoration:none;transition:.2s;margin:4px 4px 4px 0;font-size:1rem}.btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(44,58,79,.2)}.btn.secondary{background:var(--periwinkle);color:var(--ink)}.card,.hero-card,.folder-panel{background:rgba(255,255,255,.88);border:1px solid rgba(44,58,79,.1);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}.section-title{font-size:2.15rem;margin:0 0 8px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.three-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.phoenix-path{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-top:24px}.level-card{background:var(--white);border-radius:var(--radius);padding:20px;text-align:center;box-shadow:var(--shadow);border:1px solid rgba(44,58,79,.1)}.level-card .icon{font-size:2.2rem;display:block;margin-bottom:8px;text-align:center}.level-card h3{text-align:center;margin:8px 0}.progress-wrap{height:14px;background:#E5EAEE;border-radius:999px;overflow:hidden;margin-top:12px}.progress-bar{height:100%;background:var(--sprout)}.filter-box{background:rgba(255,255,255,.9);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}label{display:block;font-weight:900;margin:12px 0 6px}input,select,textarea{width:100%;padding:12px;border:1px solid #C4D1DB;border-radius:12px;background:var(--white);color:var(--ink);font:inherit}.folder-grid{display:grid;gap:24px}.folder-button{position:relative;width:100%;min-height:116px;border:0;border-radius:20px;background:linear-gradient(135deg,var(--periwinkle),var(--alabaster) 116%);color:var(--ink);padding:26px;text-align:left;cursor:pointer;display:flex;gap:18px;align-items:center;box-shadow:inset 0 -8px 0 rgba(44,58,79,.08);transition:.22s}.folder-button:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(44,58,79,.16),inset 0 -8px 0 rgba(44,58,79,.08)}.folder-tab{position:absolute;top:0;left:28px;width:140px;height:28px;background:var(--sprout);border-radius:0 0 14px 14px}.folder-icon{font-size:2.7rem;z-index:1;width:52px;text-align:center}.folder-title{z-index:1}.folder-title strong{display:block;font-size:1.35rem}.folder-title small{display:block;color:#526176;font-weight:850;margin-top:4px}.folder-content{display:none;margin-top:18px;animation:folderOpen .45s ease both}.folder-content.open{display:block}.folder-heading{display:flex;justify-content:space-between;align-items:center;gap:16px;background:var(--alabaster);border-radius:var(--radius);padding:18px;margin-bottom:18px;border:1px solid rgba(44,58,79,.1)}.file-burst{position:relative;height:34px;pointer-events:none}.file-burst span{position:absolute;left:45%;bottom:0;width:54px;height:70px;background:var(--white);border:2px solid var(--periwinkle);border-radius:8px;box-shadow:0 8px 18px rgba(44,58,79,.12);animation:filePop .65s ease both}.file-burst span:nth-child(1){--turn:-12deg;animation-delay:.02s}.file-burst span:nth-child(2){left:50%;animation-delay:.1s}.file-burst span:nth-child(3){left:55%;--turn:12deg;animation-delay:.18s}.topic-label,.pill{display:inline-block;background:var(--periwinkle);color:var(--ink);font-weight:900;border-radius:999px;padding:6px 10px;font-size:.86rem;margin:3px 3px 3px 0}.topic-summary{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:15px 0}.side{background:var(--alabaster);border-radius:14px;padding:14px}.side.pro{border-left:5px solid #58AAA9}.side.con{border-left:5px solid var(--danger)}details{background:var(--alabaster);padding:14px;border-radius:14px;margin-top:12px}summary{cursor:pointer;font-weight:900}.practice-grid,.team-tool{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}.timer-display{font-size:3rem;font-weight:950;text-align:center;margin:18px 0}.random-topic-box{background:var(--alabaster);border:1px dashed var(--periwinkle);border-radius:16px;padding:18px;margin-top:14px;font-weight:850}.role-list{margin:0;padding-left:20px}.role-list li{margin-bottom:10px}.google-form-frame{margin-top:20px;border-radius:18px;overflow:hidden;border:1px solid rgba(44,58,79,.12);background:var(--alabaster)}.google-form-frame iframe{display:block;background:var(--alabaster);width:100%;min-height:980px}footer{text-align:center;color:var(--muted);padding:34px 20px}@keyframes folderOpen{from{opacity:0;transform:translateY(-12px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes filePop{0%{opacity:0;transform:translateY(28px) scale(.6) rotate(0)}55%{opacity:1;transform:translateY(-18px) scale(1.05) rotate(var(--turn,0))}100%{opacity:1;transform:translateY(0) scale(1) rotate(var(--turn,0))}}@media(max-width:900px){.hero,.practice-grid,.team-tool,.filter-box{grid-template-columns:1fr}.grid,.three-grid,.phoenix-path{grid-template-columns:1fr}.topic-summary{grid-template-columns:1fr}.folder-heading{flex-direction:column;align-items:flex-start}section{padding:42px 18px}}
-
-/* ---- Mobile typography improvements ---- */
-html{
-  -webkit-text-size-adjust:100%;
-  text-size-adjust:100%;
+:root {
+  --alabaster:#F6F4F0; --ink:#2C3A4F; --periwinkle:#A3B8CC; --sprout:#A8DADC;
+  --white:#fff; --muted:#5F6B7C; --danger:#9B3D3D; --gold:#D6A84F;
+  --shadow:0 14px 34px rgba(44,58,79,.12); --radius:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:105px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",Arial,Helvetica,sans-serif;background:linear-gradient(135deg,var(--alabaster),#fff 55%,#DDE9EF);color:var(--ink);line-height:1.65;text-align:left;word-spacing:normal;letter-spacing:normal}
+p,li,label,summary,details{text-align:left;word-spacing:normal;letter-spacing:normal}
+h1,h2,h3,h4{line-height:1.18;letter-spacing:-.02em}
+header{position:sticky;top:0;z-index:50;background:rgba(246,244,240,.94);backdrop-filter:blur(10px);box-shadow:0 3px 16px rgba(44,58,79,.10)}
+.nav{max-width:1200px;margin:auto;padding:17px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.logo{font-weight:950;font-size:1.55rem}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+nav a{font-weight:850;text-decoration:none;border-radius:999px;padding:7px 10px}
+nav a:hover{background:var(--periwinkle)}
+main{max-width:1200px;margin:auto}
+section{padding:52px 22px}
+.hero{min-height:70vh;display:grid;grid-template-columns:1.08fr .92fr;gap:30px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,6vw,5.4rem);margin:0 0 16px}
+.section-title{font-size:2.15rem;margin:0 0 8px}
+.section-intro,.hero p{color:var(--muted);font-size:1.08rem;max-width:850px}
+.badge,.pill{display:inline-block;background:var(--sprout);font-weight:900;border-radius:999px;padding:7px 11px;margin:3px 3px 3px 0}
+.card,.hero-card,.folder-panel{background:rgba(255,255,255,.9);border:1px solid rgba(44,58,79,.10);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.btn{border:0;background:var(--ink);color:var(--alabaster);padding:12px 17px;border-radius:14px;font-weight:900;cursor:pointer;text-decoration:none;display:inline-block;margin:4px 4px 4px 0}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(44,58,79,.18)}
+.btn.secondary{background:var(--periwinkle);color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.three-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.small-card{padding:20px}
+.mission-box{background:var(--alabaster);border:1px dashed var(--periwinkle);border-radius:18px;padding:18px;margin-top:14px}
+.folder-grid{display:grid;gap:22px}
+.filter-box{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:22px 0}
+label{font-weight:900;display:block;margin:12px 0 6px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #C4D1DB;border-radius:12px;font:inherit;background:white;color:var(--ink)}
+textarea{min-height:120px;resize:vertical}
+.folder-button{position:relative;width:100%;min-height:112px;border:0;border-radius:20px;background:linear-gradient(135deg,var(--periwinkle),var(--alabaster) 116%);color:var(--ink);padding:24px;text-align:left;cursor:pointer;display:flex;gap:16px;align-items:center;box-shadow:inset 0 -8px 0 rgba(44,58,79,.08)}
+.folder-button:hover{transform:translateY(-3px)}
+.folder-tab{position:absolute;top:0;left:28px;width:140px;height:28px;background:var(--sprout);border-radius:0 0 14px 14px}
+.folder-icon{font-size:2.55rem;z-index:1;width:52px;text-align:center}
+.folder-title{z-index:1}
+.folder-title strong{display:block;font-size:1.28rem}
+.folder-title small{display:block;color:#526176;font-weight:850}
+.folder-content{display:none;margin-top:18px;animation:folderOpen .45s ease both}
+.folder-content.open{display:block}
+.folder-heading{display:flex;justify-content:space-between;gap:16px;align-items:center;background:var(--alabaster);padding:18px;border-radius:var(--radius);margin-bottom:18px}
+.topic-summary{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.side{background:var(--alabaster);border-radius:14px;padding:13px}
+.pro{border-left:5px solid #58AAA9} .con{border-left:5px solid var(--danger)}
+details{background:var(--alabaster);padding:14px;border-radius:14px;margin-top:12px}
+summary{cursor:pointer;font-weight:900}
+.ai-debate-box,.team-tool,.practice-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.debate-chat{background:var(--alabaster);border-radius:18px;padding:18px;min-height:310px;max-height:450px;overflow-y:auto;border:1px solid rgba(44,58,79,.12)}
+.message{padding:12px 14px;border-radius:14px;margin-bottom:12px;line-height:1.55}
+.message.user{background:var(--sprout)} .message.ai{background:white;border:1px solid rgba(44,58,79,.12)}
+.score-box,.stat-box{background:var(--alabaster);border-radius:14px;padding:14px;margin-top:12px;font-weight:800}
+.timer-display{font-size:3rem;text-align:center;font-weight:950;margin:18px 0}
+.hidden-note{display:none;background:var(--alabaster);padding:12px;border-radius:12px}
+.achievement{opacity:.55;transition:.2s}
+.achievement.unlocked{opacity:1;border:2px solid var(--sprout)}
+.google-form-frame{margin-top:20px;border-radius:18px;overflow:hidden;border:1px solid rgba(44,58,79,.12);background:var(--alabaster)}
+.google-form-frame iframe{display:block;width:100%;min-height:980px;background:var(--alabaster)}
+footer{text-align:center;color:var(--muted);padding:34px 20px}
+@keyframes folderOpen{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:900px){
+  .hero,.grid,.three-grid,.ai-debate-box,.team-tool,.practice-grid,.filter-box{grid-template-columns:1fr}
+  .topic-summary{grid-template-columns:1fr}
+  section{padding:42px 18px}
+  .card,.hero-card,.folder-panel{padding:20px}
 }
 
-body{
-  text-rendering:optimizeLegibility;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+.points-panel{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+  margin-top:18px;
+}
+.points-card{
+  background:var(--alabaster);
+  border:1px solid rgba(44,58,79,.12);
+  border-radius:16px;
+  padding:14px;
+  font-weight:850;
+}
+.points-number{
+  font-size:2rem;
+  font-weight:950;
+  display:block;
+}
+.points-toast{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  background:var(--ink);
+  color:var(--alabaster);
+  padding:12px 16px;
+  border-radius:14px;
+  box-shadow:var(--shadow);
+  z-index:999;
+  display:none;
+  font-weight:900;
+}
+@media(max-width:900px){
+  .points-panel{grid-template-columns:1fr}
 }
 
-body,p,li,label,details,summary,.card,.section-intro{
-  text-align:left !important;
-  text-justify:auto !important;
-  word-spacing:0 !important;
-  letter-spacing:0 !important;
-  hyphens:none !important;
-  overflow-wrap:break-word;
-  word-break:normal;
+
+.academy-panel{
+  margin-top:22px;
+  background:var(--alabaster);
+  border:1px solid rgba(44,58,79,.12);
+  border-radius:var(--radius);
+  padding:22px;
+  box-shadow:var(--shadow);
+}
+.lesson-list{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  margin-top:14px;
+}
+.lesson-item{
+  background:white;
+  border-radius:14px;
+  padding:14px;
+  border-left:5px solid var(--sprout);
+}
+@media(max-width:900px){
+  .lesson-list{grid-template-columns:1fr}
 }
 
-@media (max-width:768px){
-  body{
-    font-size:16px;
-    line-height:1.7;
-  }
 
-  .card,
-  .hero-card,
-  .folder-panel{
-    padding:20px;
-  }
-
-  p,li{
-    max-width:65ch;
-  }
-
-  h1,h2,h3{
-    line-height:1.2;
-  }
+.mission-timer{
+  margin-top:12px;
+  padding:12px;
+  border-radius:14px;
+  background:white;
+  border:1px solid rgba(44,58,79,.12);
+  font-weight:900;
+}
+.btn.locked{
+  opacity:.55;
+  cursor:not-allowed;
 }
 
 </style>
 </head>
 <body>
-<header><div class="nav"><div class="logo">🐦 The Phoenix Podium</div><nav><a href="#academy">Academy</a><a href="#topics">Library</a><a href="#practice">Practice</a><a href="#team">Team Roles</a><a href="#survey">Survey</a></nav></div></header>
+<header>
+  <div class="nav">
+    <div class="logo">🐦 The Phoenix Podium v2.0</div>
+    <nav>
+      <a href="#academy" onclick="scrollToSection('academy')">Academy</a><a href="#missions" onclick="scrollToSection('missions')">Missions</a><a href="#library" onclick="scrollToSection('library')">Library</a>
+      <a href="#ai-debate" onclick="scrollToSection('ai-debate')">AI Debate</a><a href="#dictionary" onclick="scrollToSection('dictionary')">Dictionary</a><a href="#fallacies" onclick="scrollToSection('fallacies')">Fallacies</a>
+      <a href="#team" onclick="scrollToSection('team')">Team</a><a href="#survey" onclick="scrollToSection('survey')">Survey</a>
+    </nav>
+  </div>
+</header>
 <main>
-<section class="hero" id="home"><div><span class="badge">Rise through debate</span><h1>The Phoenix Podium</h1><p>A calm and friendly debating website where students can learn debating skills, explore both sides of common topics, practise speeches, organise team roles and share feedback.</p><a href="#topics" class="btn">Enter the Phoenix Library</a><a href="#practice" class="btn secondary">Start Practising</a></div><div class="hero-card"><h2>Welcome, debater</h2><p>Open the topic folders, read the debate files, use the timer and random topic generator, then grow from a beginner speaker into a confident Phoenix Champion.</p><p><strong>Reminder:</strong> strong debaters are confident, prepared and respectful.</p></div></section>
-<section id="academy"><h2 class="section-title">Phoenix Debate Academy</h2><p class="section-intro">Follow the Phoenix Path to build your debating skills step by step.</p><div class="phoenix-path"><div class="level-card"><span class="icon">🥚</span><h3>Egg</h3><p>Understand what debating is.</p><div class="progress-wrap"><div class="progress-bar" style="width:20%"></div></div></div><div class="level-card"><span class="icon">🐣</span><h3>Hatchling</h3><p>Build clear points with reasons.</p><div class="progress-wrap"><div class="progress-bar" style="width:40%"></div></div></div><div class="level-card"><span class="icon">🐥</span><h3>Young Phoenix</h3><p>Practise rebuttal and evidence.</p><div class="progress-wrap"><div class="progress-bar" style="width:60%"></div></div></div><div class="level-card"><span class="icon">🐦</span><h3>Rising Phoenix</h3><p>Speak with confidence and clarity.</p><div class="progress-wrap"><div class="progress-bar" style="width:80%"></div></div></div><div class="level-card"><span class="icon">🏆</span><h3>Champion</h3><p>Compare both sides and finish strongly.</p><div class="progress-wrap"><div class="progress-bar" style="width:100%"></div></div></div></div><h2 class="section-title" style="margin-top:44px">Debating Tips</h2><div class="grid"><div class="card"><h3>Structure your speech</h3><p>Use an opening, main points, evidence, rebuttal and a conclusion.</p></div><div class="card"><h3>Use evidence</h3><p>Support your ideas with examples, facts, case studies or expert opinions.</p></div><div class="card"><h3>Explain your point</h3><p>Do not just state an opinion. Explain why it matters and who it affects.</p></div><div class="card"><h3>Listen carefully</h3><p>Good rebuttal starts with careful listening. Write down the opponent's main points.</p></div><div class="card"><h3>Use signposting</h3><p>Say phrases like “my first point is” and “therefore” to guide the audience.</p></div><div class="card"><h3>End strongly</h3><p>Finish by reminding people why your side is more convincing overall.</p></div></div></section>
-<section id="topics"><h2 class="section-title">Phoenix Library</h2><p class="section-intro">Debate topics are organised into folders. Click a folder to open it and watch the debate files appear.</p><div class="filter-box"><div><label for="searchTopic">Search topics</label><input id="searchTopic" type="text" placeholder="Example: homework, AI, animals..."></div><div><label for="categoryFilter">Choose a folder</label><select id="categoryFilter"><option value="all">All folders</option><option value="school">School and Education</option><option value="technology">Technology and Media</option><option value="society">Society and Life</option><option value="environment">Environment and Animals</option><option value="health">Health and Wellbeing</option></select></div></div><div class="folder-grid">
-<div class="folder-panel" data-folder="school"><button class="folder-button" type="button" onclick="openFolder('school')"><span class="folder-tab"></span><span class="folder-icon">📚</span><span class="folder-title"><strong>School and Education</strong><small>6 debate topics</small></span></button><div class="folder-content" id="folder-school"><div class="file-burst"><span></span><span></span><span></span></div><div class="folder-heading"><div><h3>📚 School and Education</h3><p>Topics about school life, learning and assessment.</p></div><button class="btn secondary" type="button" onclick="closeFolder('school')">Close folder</button></div><div class="grid">
-<article class="card topic-card" data-search="school uniforms compulsory clothing equality expression"><span class="topic-label">School and Education</span><h3>Should school uniforms be compulsory?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> Uniforms can reduce pressure about clothing and create belonging.</div><div class="side con"><strong>Against:</strong> Uniforms can limit self-expression and cost families money.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">equality</span><span class="pill">identity</span><span class="pill">self-expression</span></p><h4>For</h4><ul><li>Uniforms can reduce teasing about fashion and brands.</li><li>They can make the school look organised.</li></ul><h4>Against</h4><ul><li>Some pupils feel uniforms stop them showing personality.</li><li>Uniforms can be expensive if they must be bought from a specific supplier.</li></ul></details></article>
-<article class="card topic-card" data-search="homework banned stress practice school pupils"><span class="topic-label">School and Education</span><h3>Should homework be banned?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> Banning homework may reduce stress and improve rest.</div><div class="side con"><strong>Against:</strong> Homework helps pupils practise and remember skills.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">wellbeing</span><span class="pill">practice</span><span class="pill">responsibility</span></p><h4>For</h4><ul><li>Pupils already spend many hours in school.</li><li>Less homework gives more time for hobbies and family.</li></ul><h4>Against</h4><ul><li>Homework builds independent learning.</li><li>It helps teachers see what pupils understand.</li></ul></details></article>
-<article class="card topic-card" data-search="exams coursework assessment stress fairness"><span class="topic-label">School and Education</span><h3>Should exams be replaced by coursework?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> Coursework can show progress over time.</div><div class="side con"><strong>Against:</strong> Exams can be fairer because everyone works under the same conditions.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">assessment</span><span class="pill">fairness</span><span class="pill">pressure</span></p><h4>For</h4><ul><li>Coursework allows drafting and improvement.</li><li>It can reduce exam stress.</li></ul><h4>Against</h4><ul><li>Coursework may be affected by outside help.</li><li>Exams test independent understanding.</li></ul></details></article>
-<article class="card topic-card" data-search="school day shorter wellbeing learning"><span class="topic-label">School and Education</span><h3>Should the school day be shorter?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> A shorter day may improve wellbeing and concentration.</div><div class="side con"><strong>Against:</strong> Less time in school may reduce learning support.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">wellbeing</span><span class="pill">learning time</span><span class="pill">balance</span></p><h4>For</h4><ul><li>Pupils may focus better when they are less tired.</li><li>More time outside school can support hobbies.</li></ul><h4>Against</h4><ul><li>Teachers may struggle to cover all subjects.</li><li>Some pupils rely on school structure.</li></ul></details></article>
-<article class="card topic-card" data-search="school meals free lunch families food"><span class="topic-label">School and Education</span><h3>Should all school meals be free?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> Free meals could reduce hunger and help pupils focus.</div><div class="side con"><strong>Against:</strong> It may be expensive and money might be needed elsewhere.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">health</span><span class="pill">fairness</span><span class="pill">cost</span></p><h4>For</h4><ul><li>Hungry pupils may find it difficult to learn.</li><li>Free meals can support families.</li></ul><h4>Against</h4><ul><li>Providing meals for everyone costs money.</li><li>Some argue help should be targeted.</li></ul></details></article>
-<article class="card topic-card" data-search="students choose subjects curriculum school"><span class="topic-label">School and Education</span><h3>Should pupils choose more of their own subjects?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> Choice may increase motivation and confidence.</div><div class="side con"><strong>Against:</strong> Pupils may miss important knowledge if they choose too early.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">choice</span><span class="pill">motivation</span><span class="pill">curriculum</span></p><h4>For</h4><ul><li>Pupils may work harder when they enjoy the subject.</li><li>Choice can help future planning.</li></ul><h4>Against</h4><ul><li>A broad curriculum gives everyone basic knowledge.</li><li>Young pupils may not yet know what they need.</li></ul></details></article>
-</div></div></div>
+<section class="hero">
+  <div>
+    <span class="badge">Rise through debate</span>
+    <h1>The Phoenix Podium</h1>
+    <p>A debating platform with lessons, missions, topic folders, a simulated AI opponent, fallacy training, team roles and your Google Form survey.</p>
+    <a class="btn" href="#missions">Start a Mission</a>
+    <a class="btn secondary" href="#ai-debate">Debate the AI</a>
+  </div>
+  <div class="hero-card">
+    <h2>🐦 Phoenix Mentor</h2>
+    <p id="mentorText">Welcome back! Choose a mission, explore a topic, or challenge the AI opponent.</p>
+    <button class="btn secondary" type="button" onclick="mentorTip()">Give me a tip</button>
+    <div class="points-panel">
+      <div class="points-card"><span class="points-number" id="pointsTotal">0</span>Phoenix Points</div>
+      <div class="points-card"><span class="points-number" id="missionCount">0</span>Missions Started</div>
+      <div class="points-card"><span class="points-number" id="rankName">Egg</span>Current Rank</div>
+    </div>
+  </div>
+</section>
 
-<div class="folder-panel" data-folder="technology"><button class="folder-button" type="button" onclick="openFolder('technology')"><span class="folder-tab"></span><span class="folder-icon">💻</span><span class="folder-title"><strong>Technology and Media</strong><small>6 debate topics</small></span></button><div class="folder-content" id="folder-technology"><div class="file-burst"><span></span><span></span><span></span></div><div class="folder-heading"><div><h3>💻 Technology and Media</h3><p>Topics about phones, AI, online learning, social media and gaming.</p></div><button class="btn secondary" type="button" onclick="closeFolder('technology')">Close folder</button></div><div class="grid">
-<article class="card topic-card" data-search="mobile phones school allowed distraction emergency"><span class="topic-label">Technology and Media</span><h3>Should mobile phones be allowed in school?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> Phones can support learning and emergency contact.</div><div class="side con"><strong>Against:</strong> Phones can distract pupils and create online problems.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">focus</span><span class="pill">emergency</span><span class="pill">responsibility</span></p><h4>For</h4><ul><li>Phones can help with research and revision apps.</li><li>They can be useful in emergencies.</li></ul><h4>Against</h4><ul><li>Phones may distract from lessons.</li><li>They can increase cyberbullying or cheating.</li></ul></details></article>
-<article class="card topic-card" data-search="social media age limits online safety"><span class="topic-label">Technology and Media</span><h3>Should social media have stricter age limits?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> Stricter limits may protect young people from harmful content.</div><div class="side con"><strong>Against:</strong> Social media can support creativity and connection.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">privacy</span><span class="pill">online safety</span><span class="pill">creativity</span></p><h4>For</h4><ul><li>Young users may not fully understand privacy risks.</li><li>Rules may reduce online pressure.</li></ul><h4>Against</h4><ul><li>Age limits are hard to enforce.</li><li>Education may work better than bans.</li></ul></details></article>
-<article class="card topic-card" data-search="artificial intelligence ai schoolwork homework learning"><span class="topic-label">Technology and Media</span><h3>Should pupils be allowed to use AI for schoolwork?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> AI can explain ideas and support revision.</div><div class="side con"><strong>Against:</strong> AI may encourage copying and reduce independent thinking.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">AI</span><span class="pill">ethics</span><span class="pill">accuracy</span></p><h4>For</h4><ul><li>AI can give quick explanations.</li><li>It may support pupils who need extra help.</li></ul><h4>Against</h4><ul><li>AI can make mistakes.</li><li>Copying AI answers may reduce learning.</li></ul></details></article>
-<article class="card topic-card" data-search="video games young people gaming"><span class="topic-label">Technology and Media</span><h3>Are video games good for young people?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> Games can improve problem-solving and teamwork.</div><div class="side con"><strong>Against:</strong> Too much gaming may affect sleep and exercise.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">teamwork</span><span class="pill">balance</span><span class="pill">screen time</span></p><h4>For</h4><ul><li>Many games require strategy.</li><li>Games can help creativity.</li></ul><h4>Against</h4><ul><li>Too much gaming can reduce sleep.</li><li>It may affect homework time.</li></ul></details></article>
-<article class="card topic-card" data-search="online learning classroom remote education"><span class="topic-label">Technology and Media</span><h3>Is online learning better than classroom learning?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> Online learning is flexible and easy to access.</div><div class="side con"><strong>Against:</strong> Classroom learning gives more direct support.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">flexibility</span><span class="pill">support</span><span class="pill">access</span></p><h4>For</h4><ul><li>Lessons can be replayed.</li><li>Pupils can learn at their own speed.</li></ul><h4>Against</h4><ul><li>Some pupils need face-to-face help.</li><li>Not everyone has quiet space or good internet.</li></ul></details></article>
-<article class="card topic-card" data-search="robots future jobs technology"><span class="topic-label">Technology and Media</span><h3>Will robots make life better?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> Robots can do dangerous or difficult jobs.</div><div class="side con"><strong>Against:</strong> Robots may replace human jobs.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">future</span><span class="pill">jobs</span><span class="pill">safety</span></p><h4>For</h4><ul><li>Robots can improve safety.</li><li>They can support hospitals and factories.</li></ul><h4>Against</h4><ul><li>Some workers may lose jobs.</li><li>People may become too dependent on machines.</li></ul></details></article>
-</div></div></div>
-<div class="folder-panel" data-folder="society"><button class="folder-button" type="button" onclick="openFolder('society')"><span class="folder-tab"></span><span class="folder-icon">🌍</span><span class="folder-title"><strong>Society and Life</strong><small>5 debate topics</small></span></button><div class="folder-content" id="folder-society"><div class="file-burst"><span></span><span></span><span></span></div><div class="folder-heading"><div><h3>🌍 Society and Life</h3><p>Topics about community, fairness and everyday choices.</p></div><button class="btn secondary" type="button" onclick="closeFolder('society')">Close folder</button></div><div class="grid">
-<article class="card topic-card" data-search="public transport free buses trains society"><span class="topic-label">Society and Life</span><h3>Should public transport be free?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> Free transport could reduce traffic and help people save money.</div><div class="side con"><strong>Against:</strong> Services still need funding.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">access</span><span class="pill">tax</span><span class="pill">pollution</span></p><h4>For</h4><ul><li>It could help people on lower incomes.</li><li>More people may use buses and trains.</li></ul><h4>Against</h4><ul><li>Transport costs money to run.</li><li>The money would need to come from somewhere.</li></ul></details></article>
-<article class="card topic-card" data-search="voting age 16 democracy politics"><span class="topic-label">Society and Life</span><h3>Should the voting age be lowered to 16?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> Young people are affected by political decisions.</div><div class="side con"><strong>Against:</strong> Some people believe 16-year-olds need more experience.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">democracy</span><span class="pill">rights</span><span class="pill">maturity</span></p><h4>For</h4><ul><li>Young people deserve a voice in their future.</li><li>Voting early may build lifelong interest.</li></ul><h4>Against</h4><ul><li>Some may not feel informed enough.</li><li>The current age limit is simple.</li></ul></details></article>
-<article class="card topic-card" data-search="celebrities role models fame"><span class="topic-label">Society and Life</span><h3>Are celebrities good role models?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> Some celebrities inspire people through charity and hard work.</div><div class="side con"><strong>Against:</strong> Fame does not always mean someone has good values.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">influence</span><span class="pill">values</span><span class="pill">fame</span></p><h4>For</h4><ul><li>Some celebrities raise awareness for important causes.</li><li>They can inspire ambition.</li></ul><h4>Against</h4><ul><li>Some promote unrealistic lifestyles.</li><li>Young people may copy them without thinking critically.</li></ul></details></article>
-<article class="card topic-card" data-search="money happiness life success"><span class="topic-label">Society and Life</span><h3>Can money buy happiness?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> Money can reduce stress and provide opportunities.</div><div class="side con"><strong>Against:</strong> Happiness also depends on relationships and purpose.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">security</span><span class="pill">purpose</span><span class="pill">relationships</span></p><h4>For</h4><ul><li>Money can pay for housing, food and education.</li><li>It can create comfort and safety.</li></ul><h4>Against</h4><ul><li>Friendship and health are also important.</li><li>Rich people can still be unhappy.</li></ul></details></article>
-<article class="card topic-card" data-search="junk food adverts children advertising"><span class="topic-label">Society and Life</span><h3>Should junk food adverts aimed at children be banned?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> A ban may protect children’s health.</div><div class="side con"><strong>Against:</strong> Families should choose what they buy.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">health</span><span class="pill">choice</span><span class="pill">advertising</span></p><h4>For</h4><ul><li>Children can be easily influenced by adverts.</li><li>Reducing unhealthy advertising may help families.</li></ul><h4>Against</h4><ul><li>Parents should decide what children eat.</li><li>Companies may say they have a right to advertise.</li></ul></details></article>
-</div></div></div>
+<section id="academy">
+  <h2 class="section-title">Phoenix Academy</h2>
+  <p class="section-intro">Short lessons to help you become a stronger debater.</p>
+  <div class="three-grid">
+    <div class="card">
+      <h3>Beginner</h3>
+      <p>Learn motion, point, reason, example and conclusion.</p>
+      <button class="btn secondary" type="button" onclick="showAcademyLesson('beginner')">Start here</button>
+    </div>
+    <div class="card">
+      <h3>Intermediate</h3>
+      <p>Practise evidence, rebuttal, signposting and confident delivery.</p>
+      <button class="btn secondary" type="button" onclick="showAcademyLesson('intermediate')">Build skill</button>
+    </div>
+    <div class="card">
+      <h3>Advanced</h3>
+      <p>Use weighing, impact, framing and stronger comparison.</p>
+      <button class="btn secondary" type="button" onclick="showAcademyLesson('advanced')">Challenge</button>
+    </div>
+  </div>
 
-<div class="folder-panel" data-folder="environment"><button class="folder-button" type="button" onclick="openFolder('environment')"><span class="folder-tab"></span><span class="folder-icon">🌱</span><span class="folder-title"><strong>Environment and Animals</strong><small>5 debate topics</small></span></button><div class="folder-content" id="folder-environment"><div class="file-burst"><span></span><span></span><span></span></div><div class="folder-heading"><div><h3>🌱 Environment and Animals</h3><p>Topics about nature, animals and climate choices.</p></div><button class="btn secondary" type="button" onclick="closeFolder('environment')">Close folder</button></div><div class="grid">
-<article class="card topic-card" data-search="zoos animals conservation welfare"><span class="topic-label">Environment and Animals</span><h3>Should zoos be allowed?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> Good zoos can protect endangered animals.</div><div class="side con"><strong>Against:</strong> Animals may suffer in unnatural spaces.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">conservation</span><span class="pill">captivity</span><span class="pill">welfare</span></p><h4>For</h4><ul><li>Some zoos support conservation programmes.</li><li>They can educate visitors.</li></ul><h4>Against</h4><ul><li>Animals may not have enough space.</li><li>Some people believe animals should not be used for entertainment.</li></ul></details></article>
-<article class="card topic-card" data-search="plastic bags banned pollution"><span class="topic-label">Environment and Animals</span><h3>Should plastic bags be banned?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> A ban could reduce litter and protect wildlife.</div><div class="side con"><strong>Against:</strong> Some alternatives also use resources.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">pollution</span><span class="pill">wildlife</span><span class="pill">reusable</span></p><h4>For</h4><ul><li>Plastic bags can harm oceans and animals.</li><li>Bans encourage reusable bags.</li></ul><h4>Against</h4><ul><li>Paper and cotton bags also require resources.</li><li>Alternatives need to be reused many times.</li></ul></details></article>
-<article class="card topic-card" data-search="cars city centres pollution traffic"><span class="topic-label">Environment and Animals</span><h3>Should cars be banned from city centres?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> It could reduce air pollution, noise and traffic.</div><div class="side con"><strong>Against:</strong> Some people need cars for work or access.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">pollution</span><span class="pill">access</span><span class="pill">transport</span></p><h4>For</h4><ul><li>Fewer cars can make cities cleaner and safer.</li><li>It may encourage walking and cycling.</li></ul><h4>Against</h4><ul><li>Public transport does not work for everyone.</li><li>Businesses need deliveries.</li></ul></details></article>
-<article class="card topic-card" data-search="climate change individual responsibility government"><span class="topic-label">Environment and Animals</span><h3>Are individuals responsible for fighting climate change?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> Everyone can reduce waste and save energy.</div><div class="side con"><strong>Against:</strong> Governments and large companies have more power.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">climate</span><span class="pill">policy</span><span class="pill">responsibility</span></p><h4>For</h4><ul><li>Small actions add up when many people act.</li><li>Individuals can influence others.</li></ul><h4>Against</h4><ul><li>Large systems need policy change.</li><li>Individuals cannot solve the problem alone.</li></ul></details></article>
-<article class="card topic-card" data-search="animal testing ethics medicine"><span class="topic-label">Environment and Animals</span><h3>Should animal testing be banned?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> Animals should not suffer for human benefit.</div><div class="side con"><strong>Against:</strong> Some testing may help develop medicines.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">ethics</span><span class="pill">medicine</span><span class="pill">welfare</span></p><h4>For</h4><ul><li>Animals can experience suffering.</li><li>Modern alternatives may reduce the need for testing.</li></ul><h4>Against</h4><ul><li>Some testing has supported medical progress.</li><li>A full ban may slow research.</li></ul></details></article>
-</div></div></div>
+  <div id="academyLessonPanel" class="academy-panel">
+    <h3>Choose a Phoenix Academy level</h3>
+    <p>Click Start here, Build skill, or Challenge to open the lesson pathway.</p>
+  </div>
+</section>
 
-<div class="folder-panel" data-folder="health"><button class="folder-button" type="button" onclick="openFolder('health')"><span class="folder-tab"></span><span class="folder-icon">🏃</span><span class="folder-title"><strong>Health and Wellbeing</strong><small>3 debate topics</small></span></button><div class="folder-content" id="folder-health"><div class="file-burst"><span></span><span></span><span></span></div><div class="folder-heading"><div><h3>🏃 Health and Wellbeing</h3><p>Topics about health, sport, food and daily habits.</p></div><button class="btn secondary" type="button" onclick="closeFolder('health')">Close folder</button></div><div class="grid">
-<article class="card topic-card" data-search="sport funding arts health culture"><span class="topic-label">Health and Wellbeing</span><h3>Should sport receive more funding than the arts?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> Sport improves health and teamwork.</div><div class="side con"><strong>Against:</strong> The arts build creativity and culture.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">wellbeing</span><span class="pill">culture</span><span class="pill">funding</span></p><h4>For</h4><ul><li>Sport can reduce health problems.</li><li>It brings communities together.</li></ul><h4>Against</h4><ul><li>Music, drama and art are also important.</li><li>The arts help emotional expression.</li></ul></details></article>
-<article class="card topic-card" data-search="people eat less meat health environment animals"><span class="topic-label">Health and Wellbeing</span><h3>Should people eat less meat?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> Eating less meat may help the environment and animal welfare.</div><div class="side con"><strong>Against:</strong> Meat is part of many diets and cultures.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">diet</span><span class="pill">culture</span><span class="pill">environment</span></p><h4>For</h4><ul><li>Reducing meat can lower environmental impact.</li><li>It may encourage healthier choices for some people.</li></ul><h4>Against</h4><ul><li>Many people rely on farming for work.</li><li>Meat can be part of a balanced diet.</li></ul></details></article>
-<article class="card topic-card" data-search="school sleep start later wellbeing pupils"><span class="topic-label">Health and Wellbeing</span><h3>Should schools start later in the morning?</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> Later starts may improve sleep and concentration.</div><div class="side con"><strong>Against:</strong> Later starts may affect family routines and after-school activities.</div></div><details><summary>Read detailed arguments</summary><p><span class="pill">sleep</span><span class="pill">routine</span><span class="pill">concentration</span></p><h4>For</h4><ul><li>Better sleep may improve learning.</li><li>Pupils may feel less tired.</li></ul><h4>Against</h4><ul><li>Parents may find later times difficult.</li><li>After-school clubs may finish too late.</li></ul></details></article>
-</div></div></div>
-</div></section>
-<section id="practice"><h2 class="section-title">Phoenix Practice Centre</h2><p class="section-intro">Use these quick tools to practise before a lesson, club meeting or competition.</p><div class="practice-grid"><div class="card"><h3>Random Debate Generator</h3><p>Click the button and receive a surprise debate topic.</p><button class="btn" type="button" onclick="generateRandomTopic()">Give me a random debate!</button><div id="randomTopic" class="random-topic-box">Your topic will appear here.</div></div><div class="card"><h3>Debate Timer</h3><p>Choose a speaking time and practise staying within the limit.</p><button class="btn" type="button" onclick="setTimer(60)">1 min</button><button class="btn" type="button" onclick="setTimer(120)">2 mins</button><button class="btn" type="button" onclick="setTimer(240)">4 mins</button><button class="btn" type="button" onclick="setTimer(480)">8 mins</button><div id="timerDisplay" class="timer-display">00:00</div><button class="btn" type="button" onclick="startTimer()">Start</button><button class="btn secondary" type="button" onclick="pauseTimer()">Pause</button><button class="btn secondary" type="button" onclick="resetTimer()">Reset</button></div></div><div class="card" style="margin-top:22px"><h3>Phoenix Achievements</h3><div class="three-grid"><div class="card">🥚 First Debate</div><div class="card">📚 Read 5 Topics</div><div class="card">🎤 Complete a Timed Speech</div><div class="card">🐥 Try a Rebuttal</div><div class="card">⭐ Practise 3 Days in a Row</div><div class="card">🏆 Phoenix Champion</div></div></div></section>
-<section id="team"><h2 class="section-title">Debate Team Role Recommender</h2><p class="section-intro">Choose how many people are in your team. The Phoenix Podium will suggest useful roles.</p><div class="team-tool"><div class="card"><label for="teamSize">How many people are in your team?</label><select id="teamSize"><option value="">Please choose</option><option value="1">1 person</option><option value="2">2 people</option><option value="3">3 people</option><option value="4">4 people</option><option value="5">5 people</option><option value="6">6 people</option></select><label for="styleChoice">What type of help do you want?</label><select id="styleChoice"><option value="balanced">Balanced team</option><option value="research">Stronger research support</option><option value="speaking">Stronger speaking support</option><option value="rebuttal">Stronger rebuttal support</option></select><button class="btn" type="button" onclick="recommendRoles()">Recommend Roles</button></div><div class="card"><h3>Recommended roles</h3><div id="roleOutput"><p>Please select your team size to see recommended jobs.</p></div></div></div></section>
-<section id="survey"><h2 class="section-title">Website Survey</h2><p class="section-intro">Please complete the feedback form below. Your response will be sent directly to Google Forms.</p><div class="card"><h3>The Phoenix Podium Feedback Form</h3><p>If the form does not load, you can open it in a new tab using the button below.</p><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdxEDgF_EUCyfvNvjbkfkwRcMj176j1MD7BEtoZFDjjh4IGZA/viewform?usp=dialog" target="_blank" rel="noopener">Open Survey in New Tab</a><div class="google-form-frame"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdxEDgF_EUCyfvNvjbkfkwRcMj176j1MD7BEtoZFDjjh4IGZA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe></div></div></section>
-</main><footer><p>© 2026 The Phoenix Podium. Built for clear thinking, respectful speaking and stronger arguments.</p></footer>
+<section id="missions">
+  <h2 class="section-title">Phoenix Missions</h2>
+  <p class="section-intro">Generate a complete debate challenge: topic, side, role, time and bonus task.</p>
+  <div class="card">
+    <button class="btn" type="button" onclick="generateMission()">Start Mission</button>
+    <div id="missionOutput" class="mission-box">Your mission will appear here.</div>
+  </div>
+</section>
+
+<section id="library">
+  <h2 class="section-title">Phoenix Library</h2>
+  <p class="section-intro">Explore over 80 debate topics in organised folders.</p>
+  <div class="filter-box">
+    <div><label for="topicSearch">Search topics</label><input id="topicSearch" placeholder="Search AI, homework, animals..."></div>
+    <div><label for="categoryFilter">Choose a folder</label><select id="categoryFilter"><option value="all">All folders</option></select></div>
+  </div>
+  <div id="libraryMount" class="folder-grid"></div>
+</section>
+
+<section id="ai-debate">
+  <h2 class="section-title">AI Debate Arena</h2>
+  <p class="section-intro">Debate a simulated AI opponent. It replies in varied ways and gives feedback. No real AI service or server is needed.</p>
+  <div class="ai-debate-box">
+    <div class="card">
+      <h3>Set up your debate</h3>
+      <label for="aiTopic">Topic</label><select id="aiTopic"></select>
+      <label for="aiSide">Your side</label><select id="aiSide"><option value="for">For the motion</option><option value="against">Against the motion</option></select>
+      <label for="aiPersonality">AI personality</label><select id="aiPersonality"><option value="friendly">Friendly Phoenix</option><option value="captain">Debate Captain</option><option value="champion">National Champion</option><option value="judge">Strict Judge</option></select>
+      <label for="userArgument">Write your argument</label><textarea id="userArgument" placeholder="I believe this because..."></textarea>
+      <button class="btn" type="button" onclick="submitDebateArgument()">Submit Argument</button>
+      <button class="btn secondary" type="button" onclick="finishDebate()">Finish and Judge</button>
+      <button class="btn secondary" type="button" onclick="resetDebate()">Reset</button>
+      <div id="aiScore" class="score-box">Your feedback score will appear here.</div>
+    </div>
+    <div class="card">
+      <h3>Debate Room</h3>
+      <div id="debateChat" class="debate-chat"><div class="message ai"><strong>AI Opponent:</strong> Choose a topic and write your first argument.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="dictionary">
+  <h2 class="section-title">Debate Dictionary</h2>
+  <p class="section-intro">Useful debating words explained simply.</p>
+  <div class="three-grid"><div class="card small-card"><h3>Motion</h3><p>The debate statement or topic being argued.</p></div>
+<div class="card small-card"><h3>Proposition</h3><p>The side that supports the motion.</p></div>
+<div class="card small-card"><h3>Opposition</h3><p>The side that argues against the motion.</p></div>
+<div class="card small-card"><h3>Rebuttal</h3><p>A response that challenges the other side’s argument.</p></div>
+<div class="card small-card"><h3>Evidence</h3><p>Facts, examples, statistics or expert views used to support a point.</p></div>
+<div class="card small-card"><h3>POI</h3><p>Point of Information: a short question or challenge during a speech.</p></div>
+<div class="card small-card"><h3>Burden</h3><p>What a side needs to prove to win the debate.</p></div>
+<div class="card small-card"><h3>Weighing</h3><p>Explaining why your argument matters more than the other side’s.</p></div>
+<div class="card small-card"><h3>Impact</h3><p>The result or consequence of an argument.</p></div>
+<div class="card small-card"><h3>Signposting</h3><p>Clear phrases that guide the audience through your speech.</p></div>
+<div class="card small-card"><h3>Framing</h3><p>Setting up how the debate should be understood.</p></div>
+<div class="card small-card"><h3>Extension</h3><p>A new argument that adds something important to the debate.</p></div></div>
+</section>
+
+<section id="fallacies">
+  <h2 class="section-title">Logical Fallacy Trainer</h2>
+  <p class="section-intro">Learn common mistakes in arguments.</p>
+  <div class="grid">
+<div class="card fallacy-card">
+  <h3>Straw Man</h3>
+  <p>Misrepresenting someone’s argument to make it easier to attack.</p>
+  <button class="btn secondary" type="button" onclick="toggleFallacy(this)">Show example</button>
+  <p class="hidden-note"><strong>Example:</strong> “You want less homework, so you must hate learning.”</p>
+</div>
+
+<div class="card fallacy-card">
+  <h3>False Dilemma</h3>
+  <p>Pretending there are only two choices when there are more.</p>
+  <button class="btn secondary" type="button" onclick="toggleFallacy(this)">Show example</button>
+  <p class="hidden-note"><strong>Example:</strong> “Either ban phones completely or accept chaos.”</p>
+</div>
+
+<div class="card fallacy-card">
+  <h3>Ad Hominem</h3>
+  <p>Attacking the person instead of the argument.</p>
+  <button class="btn secondary" type="button" onclick="toggleFallacy(this)">Show example</button>
+  <p class="hidden-note"><strong>Example:</strong> “Your point is wrong because you are young.”</p>
+</div>
+
+<div class="card fallacy-card">
+  <h3>Slippery Slope</h3>
+  <p>Claiming one small step will definitely lead to disaster.</p>
+  <button class="btn secondary" type="button" onclick="toggleFallacy(this)">Show example</button>
+  <p class="hidden-note"><strong>Example:</strong> “If pupils use AI once, nobody will ever learn again.”</p>
+</div>
+
+<div class="card fallacy-card">
+  <h3>Hasty Generalisation</h3>
+  <p>Making a big claim from too little evidence.</p>
+  <button class="btn secondary" type="button" onclick="toggleFallacy(this)">Show example</button>
+  <p class="hidden-note"><strong>Example:</strong> “One zoo was bad, so all zoos are bad.”</p>
+</div>
+
+<div class="card fallacy-card">
+  <h3>Appeal to Emotion</h3>
+  <p>Using feelings instead of strong reasoning.</p>
+  <button class="btn secondary" type="button" onclick="toggleFallacy(this)">Show example</button>
+  <p class="hidden-note"><strong>Example:</strong> “Only a heartless person would disagree.”</p>
+</div></div>
+</section>
+
+<section id="team">
+  <h2 class="section-title">Team Builder 2.0</h2>
+  <p class="section-intro">Choose your team size and style to receive recommended roles.</p>
+  <div class="team-tool">
+    <div class="card">
+      <label for="teamSize">Team size</label><select id="teamSize"><option value="">Please choose</option><option value="1">1 person</option><option value="2">2 people</option><option value="3">3 people</option><option value="4">4 people</option><option value="5">5 people</option><option value="6">6 people</option></select>
+      <label for="teamStyle">Team focus</label><select id="teamStyle"><option value="balanced">Balanced</option><option value="research">Research</option><option value="speaking">Speaking</option><option value="rebuttal">Rebuttal</option></select>
+      <button class="btn" type="button" onclick="recommendRoles()">Recommend Roles</button>
+    </div>
+    <div class="card"><h3>Recommended roles</h3><div id="roleOutput">Choose a team size first.</div></div>
+  </div>
+</section>
+
+<section id="achievements">
+  <h2 class="section-title">Phoenix Achievements</h2>
+  <p class="section-intro">Badges unlock as you explore the website in this browser.</p>
+  <div class="three-grid">
+    <div class="card achievement" id="achMission">🐦 First Mission</div>
+    <div class="card achievement" id="achFolder">📚 Opened Library Folder</div>
+    <div class="card achievement" id="achAI">🤖 Debated AI</div>
+    <div class="card achievement" id="achFallacy">🧠 Learnt a Fallacy</div>
+    <div class="card achievement" id="achTeam">👥 Built a Team</div>
+    <div class="card achievement" id="achChampion">🏆 Phoenix Champion</div>
+  </div>
+</section>
+
+<section id="survey">
+  <h2 class="section-title">Website Survey</h2>
+  <p class="section-intro">Your Google Form is embedded below.</p>
+  <div class="card">
+    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdxEDgF_EUCyfvNvjbkfkwRcMj176j1MD7BEtoZFDjjh4IGZA/viewform?usp=dialog" target="_blank" rel="noopener">Open Survey in New Tab</a>
+    <div class="google-form-frame"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdxEDgF_EUCyfvNvjbkfkwRcMj176j1MD7BEtoZFDjjh4IGZA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe></div>
+  </div>
+</section>
+</main>
+<div id="pointsToast" class="points-toast">+0 Phoenix Points</div>
+<footer>© 2026 The Phoenix Podium. Definitely not the last version.</footer>
 <script>
-const debateTopics=["Should school uniforms be compulsory?","Should homework be banned?","Should exams be replaced by coursework?","Should the school day be shorter?","Should all school meals be free?","Should pupils choose more of their own subjects?","Should mobile phones be allowed in school?","Should social media have stricter age limits?","Should pupils be allowed to use AI for schoolwork?","Are video games good for young people?","Is online learning better than classroom learning?","Will robots make life better?","Should public transport be free?","Should the voting age be lowered to 16?","Are celebrities good role models?","Can money buy happiness?","Should junk food adverts aimed at children be banned?","Should zoos be allowed?","Should plastic bags be banned?","Should cars be banned from city centres?","Are individuals responsible for fighting climate change?","Should animal testing be banned?","Should sport receive more funding than the arts?","Should people eat less meat?","Should schools start later in the morning?"];
-const rolePlans={1:{balanced:["Speaker and researcher: prepare the argument, evidence, rebuttal and final summary."],research:["Researcher-speaker: focus on evidence first, then build a clear speech around it."],speaking:["Main speaker: practise delivery, timing, confidence and clear signposting."],rebuttal:["Argument challenger: predict the other side’s points and prepare responses."]},2:{balanced:["Speaker 1: opening speech and first main argument.","Speaker 2: second argument, rebuttal and conclusion."],research:["Research lead: collects facts, examples and sources.","Speaker lead: turns research into persuasive speeches."],speaking:["Opening speaker: introduces the team case clearly.","Closing speaker: delivers rebuttal and a strong final message."],rebuttal:["Case builder: prepares the main arguments.","Rebuttal lead: listens to opponents and responds."]},3:{balanced:["First speaker: definition, team line and first argument.","Second speaker: second argument and examples.","Third speaker: rebuttal, comparison and conclusion."],research:["Research lead: finds evidence and examples.","Argument organiser: builds points into a clear order.","Speaker and rebuttal lead: presents and responds."],speaking:["Opening speaker: confident introduction.","Main speaker: develops the strongest arguments.","Final speaker: persuasive conclusion."],rebuttal:["First speaker: sets up the case.","Second speaker: supports with evidence.","Third speaker: focuses on rebuttal and weighing."]},4:{balanced:["First speaker: opening and definitions.","Second speaker: main arguments.","Third speaker: rebuttal and examples.","Fourth speaker: summary and final appeal."],research:["Research manager: finds reliable evidence.","Argument planner: organises ideas.","Speaker: presents the case.","Rebuttal speaker: prepares responses."],speaking:["Opening speaker","Main argument speaker","Rebuttal speaker","Closing speaker"],rebuttal:["Case speaker","Evidence speaker","Rebuttal lead","Summary speaker"]},5:{balanced:["Team captain: keeps everyone organised.","Researcher: finds evidence.","First speaker: opening.","Second speaker: main arguments.","Rebuttal and summary speaker."],research:["Lead researcher","Evidence checker","Argument writer","Main speaker","Rebuttal speaker"],speaking:["Speech coach","Opening speaker","Main speaker","Rebuttal speaker","Closing speaker"],rebuttal:["Opponent tracker","Evidence collector","Opening speaker","Rebuttal speaker","Summary speaker"]},6:{balanced:["Chair or captain","Lead researcher","Argument writer","First speaker","Second speaker","Rebuttal and summary speaker"],research:["Topic researcher","Statistics researcher","Case study finder","Argument organiser","Main speaker","Rebuttal speaker"],speaking:["Speech coach","Opening speaker","Main speaker 1","Main speaker 2","Rebuttal speaker","Closing speaker"],rebuttal:["Opponent tracker","Rebuttal writer","Evidence checker","Opening speaker","Main speaker","Summary speaker"]}};
-function openFolder(folderName){const content=document.getElementById("folder-"+folderName);if(!content)return;content.classList.add("open");const burst=content.querySelector(".file-burst");if(burst){burst.style.animation="none";burst.offsetHeight;burst.style.animation=""}content.scrollIntoView({behavior:"smooth",block:"start"})}
-function closeFolder(folderName){const content=document.getElementById("folder-"+folderName);if(!content)return;content.classList.remove("open")}
-function filterTopics(){const searchValue=document.getElementById("searchTopic").value.toLowerCase();const categoryValue=document.getElementById("categoryFilter").value;document.querySelectorAll(".folder-panel").forEach(folder=>{const folderCategory=folder.getAttribute("data-folder");const cards=folder.querySelectorAll(".topic-card");let visibleCards=0;cards.forEach(card=>{const searchText=(card.innerText+" "+(card.getAttribute("data-search")||"")).toLowerCase();const matchesSearch=searchText.includes(searchValue);const matchesCategory=categoryValue==="all"||folderCategory===categoryValue;const showCard=matchesSearch&&matchesCategory;card.style.display=showCard?"block":"none";if(showCard)visibleCards++});const showFolder=visibleCards>0&&(categoryValue==="all"||folderCategory===categoryValue);folder.style.display=showFolder?"block":"none";if(searchValue.length>0&&visibleCards>0){const content=folder.querySelector(".folder-content");if(content)content.classList.add("open")}})}
-function generateRandomTopic(){const box=document.getElementById("randomTopic");const topic=debateTopics[Math.floor(Math.random()*debateTopics.length)];box.innerHTML="🐦 <strong>Your topic:</strong><br>"+topic}
-let timerSeconds=0,originalSeconds=0,timerInterval=null;function setTimer(seconds){timerSeconds=seconds;originalSeconds=seconds;updateTimerDisplay()}function updateTimerDisplay(){const display=document.getElementById("timerDisplay");const minutes=Math.floor(timerSeconds/60);const seconds=timerSeconds%60;display.textContent=String(minutes).padStart(2,"0")+":"+String(seconds).padStart(2,"0");if(timerSeconds<=10&&originalSeconds>0){display.style.color="#9B3D3D"}else if(timerSeconds<=30&&originalSeconds>60){display.style.color="#B45309"}else{display.style.color="#2C3A4F"}}function startTimer(){if(timerSeconds<=0||timerInterval)return;timerInterval=setInterval(()=>{timerSeconds--;updateTimerDisplay();if(timerSeconds<=0){clearInterval(timerInterval);timerInterval=null;document.getElementById("timerDisplay").textContent="Time!"}},1000)}function pauseTimer(){clearInterval(timerInterval);timerInterval=null}function resetTimer(){pauseTimer();timerSeconds=originalSeconds;updateTimerDisplay()}
-function recommendRoles(){const size=document.getElementById("teamSize").value;const style=document.getElementById("styleChoice").value;const output=document.getElementById("roleOutput");if(!size){output.innerHTML="<p>Please choose your team size first.</p>";return}const roles=rolePlans[size][style]||rolePlans[size].balanced;output.innerHTML=`<p><strong>Suggested plan for ${size} ${size==="1"?"person":"people"}:</strong></p><ol class="role-list">${roles.map(role=>`<li>${role}</li>`).join("")}</ol><p><em>Tip:</em> Everyone should understand the whole case, even if they have different jobs.</p>`}
-document.addEventListener("DOMContentLoaded",()=>{document.getElementById("searchTopic").addEventListener("input",filterTopics);document.getElementById("categoryFilter").addEventListener("change",filterTopics)});
+const TOPICS = [{"id": "education-1", "category": "education", "categoryName": "Education", "icon": "📚", "title": "Should homework be banned?", "difficulty": "Beginner", "for": "This side argues that should homework be banned because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "education-2", "category": "education", "categoryName": "Education", "icon": "📚", "title": "Should school uniforms be compulsory?", "difficulty": "Beginner", "for": "This side argues that should school uniforms be compulsory because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "education-3", "category": "education", "categoryName": "Education", "icon": "📚", "title": "Should exams be replaced by coursework?", "difficulty": "Beginner", "for": "This side argues that should exams be replaced by coursework because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "education-4", "category": "education", "categoryName": "Education", "icon": "📚", "title": "Should school meals be free for all pupils?", "difficulty": "Beginner", "for": "This side argues that should school meals be free for all pupils because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "education-5", "category": "education", "categoryName": "Education", "icon": "📚", "title": "Should schools start later in the morning?", "difficulty": "Intermediate", "for": "This side argues that should schools start later in the morning because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "education-6", "category": "education", "categoryName": "Education", "icon": "📚", "title": "Should pupils choose more of their own subjects?", "difficulty": "Intermediate", "for": "This side argues that should pupils choose more of their own subjects because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "education-7", "category": "education", "categoryName": "Education", "icon": "📚", "title": "Should school days be shorter?", "difficulty": "Intermediate", "for": "This side argues that should school days be shorter because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "education-8", "category": "education", "categoryName": "Education", "icon": "📚", "title": "Should every school have a debate club?", "difficulty": "Intermediate", "for": "This side argues that should every school have a debate club because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "education-9", "category": "education", "categoryName": "Education", "icon": "📚", "title": "Should grades be replaced by written feedback?", "difficulty": "Intermediate", "for": "This side argues that should grades be replaced by written feedback because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "education-10", "category": "education", "categoryName": "Education", "icon": "📚", "title": "Should pupils have more outdoor lessons?", "difficulty": "Advanced", "for": "This side argues that should pupils have more outdoor lessons because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "education-11", "category": "education", "categoryName": "Education", "icon": "📚", "title": "Should schools teach financial education?", "difficulty": "Advanced", "for": "This side argues that should schools teach financial education because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "education-12", "category": "education", "categoryName": "Education", "icon": "📚", "title": "Should pupils be allowed mental health days?", "difficulty": "Advanced", "for": "This side argues that should pupils be allowed mental health days because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "technology-1", "category": "technology", "categoryName": "Technology and Media", "icon": "💻", "title": "Should mobile phones be allowed in school?", "difficulty": "Beginner", "for": "This side argues that should mobile phones be allowed in school because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "technology-2", "category": "technology", "categoryName": "Technology and Media", "icon": "💻", "title": "Should pupils be allowed to use AI for schoolwork?", "difficulty": "Beginner", "for": "This side argues that should pupils be allowed to use AI for schoolwork because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "technology-3", "category": "technology", "categoryName": "Technology and Media", "icon": "💻", "title": "Should social media have stricter age limits?", "difficulty": "Beginner", "for": "This side argues that should social media have stricter age limits because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "technology-4", "category": "technology", "categoryName": "Technology and Media", "icon": "💻", "title": "Are video games good for young people?", "difficulty": "Beginner", "for": "This side argues that are video games good for young people because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "technology-5", "category": "technology", "categoryName": "Technology and Media", "icon": "💻", "title": "Is online learning better than classroom learning?", "difficulty": "Intermediate", "for": "This side argues that is online learning better than classroom learning because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "technology-6", "category": "technology", "categoryName": "Technology and Media", "icon": "💻", "title": "Will robots make life better?", "difficulty": "Intermediate", "for": "This side argues that will robots make life better because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "technology-7", "category": "technology", "categoryName": "Technology and Media", "icon": "💻", "title": "Should children have screen time limits?", "difficulty": "Intermediate", "for": "This side argues that should children have screen time limits because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "technology-8", "category": "technology", "categoryName": "Technology and Media", "icon": "💻", "title": "Should influencers be more regulated?", "difficulty": "Intermediate", "for": "This side argues that should influencers be more regulated because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "technology-9", "category": "technology", "categoryName": "Technology and Media", "icon": "💻", "title": "Should schools teach coding to everyone?", "difficulty": "Intermediate", "for": "This side argues that should schools teach coding to everyone because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "technology-10", "category": "technology", "categoryName": "Technology and Media", "icon": "💻", "title": "Should AI art be allowed in competitions?", "difficulty": "Advanced", "for": "This side argues that should AI art be allowed in competitions because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "technology-11", "category": "technology", "categoryName": "Technology and Media", "icon": "💻", "title": "Should online anonymity be limited?", "difficulty": "Advanced", "for": "This side argues that should online anonymity be limited because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "technology-12", "category": "technology", "categoryName": "Technology and Media", "icon": "💻", "title": "Should apps collect less personal data?", "difficulty": "Advanced", "for": "This side argues that should apps collect less personal data because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "society-1", "category": "society", "categoryName": "Society and Life", "icon": "🌍", "title": "Should public transport be free?", "difficulty": "Beginner", "for": "This side argues that should public transport be free because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "society-2", "category": "society", "categoryName": "Society and Life", "icon": "🌍", "title": "Should the voting age be lowered to 16?", "difficulty": "Beginner", "for": "This side argues that should the voting age be lowered to 16 because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "society-3", "category": "society", "categoryName": "Society and Life", "icon": "🌍", "title": "Are celebrities good role models?", "difficulty": "Beginner", "for": "This side argues that are celebrities good role models because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "society-4", "category": "society", "categoryName": "Society and Life", "icon": "🌍", "title": "Can money buy happiness?", "difficulty": "Beginner", "for": "This side argues that can money buy happiness because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "society-5", "category": "society", "categoryName": "Society and Life", "icon": "🌍", "title": "Should junk food adverts aimed at children be banned?", "difficulty": "Intermediate", "for": "This side argues that should junk food adverts aimed at children be banned because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "society-6", "category": "society", "categoryName": "Society and Life", "icon": "🌍", "title": "Should people work four days a week?", "difficulty": "Intermediate", "for": "This side argues that should people work four days a week because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "society-7", "category": "society", "categoryName": "Society and Life", "icon": "🌍", "title": "Should volunteering be compulsory in schools?", "difficulty": "Intermediate", "for": "This side argues that should volunteering be compulsory in schools because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "society-8", "category": "society", "categoryName": "Society and Life", "icon": "🌍", "title": "Should cities have more green spaces?", "difficulty": "Intermediate", "for": "This side argues that should cities have more green spaces because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "society-9", "category": "society", "categoryName": "Society and Life", "icon": "🌍", "title": "Should museums be free?", "difficulty": "Intermediate", "for": "This side argues that should museums be free because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "society-10", "category": "society", "categoryName": "Society and Life", "icon": "🌍", "title": "Should parents limit children’s internet use?", "difficulty": "Advanced", "for": "This side argues that should parents limit children’s internet use because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "society-11", "category": "society", "categoryName": "Society and Life", "icon": "🌍", "title": "Should public libraries receive more funding?", "difficulty": "Advanced", "for": "This side argues that should public libraries receive more funding because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "society-12", "category": "society", "categoryName": "Society and Life", "icon": "🌍", "title": "Should everyone learn basic first aid?", "difficulty": "Advanced", "for": "This side argues that should everyone learn basic first aid because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "environment-1", "category": "environment", "categoryName": "Environment and Animals", "icon": "🌱", "title": "Should zoos be allowed?", "difficulty": "Beginner", "for": "This side argues that should zoos be allowed because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "environment-2", "category": "environment", "categoryName": "Environment and Animals", "icon": "🌱", "title": "Should plastic bags be banned?", "difficulty": "Beginner", "for": "This side argues that should plastic bags be banned because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "environment-3", "category": "environment", "categoryName": "Environment and Animals", "icon": "🌱", "title": "Should cars be banned from city centres?", "difficulty": "Beginner", "for": "This side argues that should cars be banned from city centres because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "environment-4", "category": "environment", "categoryName": "Environment and Animals", "icon": "🌱", "title": "Are individuals responsible for fighting climate change?", "difficulty": "Beginner", "for": "This side argues that are individuals responsible for fighting climate change because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "environment-5", "category": "environment", "categoryName": "Environment and Animals", "icon": "🌱", "title": "Should animal testing be banned?", "difficulty": "Intermediate", "for": "This side argues that should animal testing be banned because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "environment-6", "category": "environment", "categoryName": "Environment and Animals", "icon": "🌱", "title": "Should people eat less meat?", "difficulty": "Intermediate", "for": "This side argues that should people eat less meat because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "environment-7", "category": "environment", "categoryName": "Environment and Animals", "icon": "🌱", "title": "Should fast fashion be banned?", "difficulty": "Intermediate", "for": "This side argues that should fast fashion be banned because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "environment-8", "category": "environment", "categoryName": "Environment and Animals", "icon": "🌱", "title": "Should schools have meat-free days?", "difficulty": "Intermediate", "for": "This side argues that should schools have meat-free days because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "environment-9", "category": "environment", "categoryName": "Environment and Animals", "icon": "🌱", "title": "Should air travel be taxed more?", "difficulty": "Intermediate", "for": "This side argues that should air travel be taxed more because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "environment-10", "category": "environment", "categoryName": "Environment and Animals", "icon": "🌱", "title": "Should single-use plastic bottles be banned?", "difficulty": "Advanced", "for": "This side argues that should single-use plastic bottles be banned because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "environment-11", "category": "environment", "categoryName": "Environment and Animals", "icon": "🌱", "title": "Should beaches have stricter litter fines?", "difficulty": "Advanced", "for": "This side argues that should beaches have stricter litter fines because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "environment-12", "category": "environment", "categoryName": "Environment and Animals", "icon": "🌱", "title": "Should governments protect more land as nature reserves?", "difficulty": "Advanced", "for": "This side argues that should governments protect more land as nature reserves because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "health-1", "category": "health", "categoryName": "Health and Wellbeing", "icon": "🏃", "title": "Should sport receive more funding than the arts?", "difficulty": "Beginner", "for": "This side argues that should sport receive more funding than the arts because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "health-2", "category": "health", "categoryName": "Health and Wellbeing", "icon": "🏃", "title": "Should schools ban energy drinks?", "difficulty": "Beginner", "for": "This side argues that should schools ban energy drinks because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "health-3", "category": "health", "categoryName": "Health and Wellbeing", "icon": "🏃", "title": "Should mental health lessons be compulsory?", "difficulty": "Beginner", "for": "This side argues that should mental health lessons be compulsory because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "health-4", "category": "health", "categoryName": "Health and Wellbeing", "icon": "🏃", "title": "Should PE be compulsory every day?", "difficulty": "Beginner", "for": "This side argues that should PE be compulsory every day because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "health-5", "category": "health", "categoryName": "Health and Wellbeing", "icon": "🏃", "title": "Should unhealthy snacks be banned in schools?", "difficulty": "Intermediate", "for": "This side argues that should unhealthy snacks be banned in schools because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "health-6", "category": "health", "categoryName": "Health and Wellbeing", "icon": "🏃", "title": "Should young people have later bedtimes at weekends?", "difficulty": "Intermediate", "for": "This side argues that should young people have later bedtimes at weekends because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "health-7", "category": "health", "categoryName": "Health and Wellbeing", "icon": "🏃", "title": "Should schools teach cooking skills?", "difficulty": "Intermediate", "for": "This side argues that should schools teach cooking skills because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "health-8", "category": "health", "categoryName": "Health and Wellbeing", "icon": "🏃", "title": "Should everyone walk or cycle more?", "difficulty": "Intermediate", "for": "This side argues that should everyone walk or cycle more because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "health-9", "category": "health", "categoryName": "Health and Wellbeing", "icon": "🏃", "title": "Should sugar be taxed more?", "difficulty": "Intermediate", "for": "This side argues that should sugar be taxed more because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "health-10", "category": "health", "categoryName": "Health and Wellbeing", "icon": "🏃", "title": "Should meditation be taught in schools?", "difficulty": "Advanced", "for": "This side argues that should meditation be taught in schools because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "ethics-1", "category": "ethics", "categoryName": "Ethics and Rights", "icon": "⚖️", "title": "Should animals have legal rights?", "difficulty": "Beginner", "for": "This side argues that should animals have legal rights because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "ethics-2", "category": "ethics", "categoryName": "Ethics and Rights", "icon": "⚖️", "title": "Should rich countries give more aid to poorer countries?", "difficulty": "Beginner", "for": "This side argues that should rich countries give more aid to poorer countries because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "ethics-3", "category": "ethics", "categoryName": "Ethics and Rights", "icon": "⚖️", "title": "Should everyone have the right to internet access?", "difficulty": "Beginner", "for": "This side argues that should everyone have the right to internet access because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "ethics-4", "category": "ethics", "categoryName": "Ethics and Rights", "icon": "⚖️", "title": "Should prisoners be allowed to vote?", "difficulty": "Beginner", "for": "This side argues that should prisoners be allowed to vote because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "ethics-5", "category": "ethics", "categoryName": "Ethics and Rights", "icon": "⚖️", "title": "Should privacy matter more than security?", "difficulty": "Intermediate", "for": "This side argues that should privacy matter more than security because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "ethics-6", "category": "ethics", "categoryName": "Ethics and Rights", "icon": "⚖️", "title": "Should companies be punished for misleading adverts?", "difficulty": "Intermediate", "for": "This side argues that should companies be punished for misleading adverts because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "ethics-7", "category": "ethics", "categoryName": "Ethics and Rights", "icon": "⚖️", "title": "Should people be allowed to protest anywhere?", "difficulty": "Intermediate", "for": "This side argues that should people be allowed to protest anywhere because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "ethics-8", "category": "ethics", "categoryName": "Ethics and Rights", "icon": "⚖️", "title": "Should children have more say in decisions that affect them?", "difficulty": "Intermediate", "for": "This side argues that should children have more say in decisions that affect them because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "ethics-9", "category": "ethics", "categoryName": "Ethics and Rights", "icon": "⚖️", "title": "Should school punishments be the same for everyone?", "difficulty": "Intermediate", "for": "This side argues that should school punishments be the same for everyone because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "ethics-10", "category": "ethics", "categoryName": "Ethics and Rights", "icon": "⚖️", "title": "Should charities receive more government support?", "difficulty": "Advanced", "for": "This side argues that should charities receive more government support because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "economics-1", "category": "economics", "categoryName": "Money and Work", "icon": "💰", "title": "Should the minimum wage be higher?", "difficulty": "Beginner", "for": "This side argues that should the minimum wage be higher because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "economics-2", "category": "economics", "categoryName": "Money and Work", "icon": "💰", "title": "Should teenagers have part-time jobs?", "difficulty": "Beginner", "for": "This side argues that should teenagers have part-time jobs because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "economics-3", "category": "economics", "categoryName": "Money and Work", "icon": "💰", "title": "Should university be free?", "difficulty": "Beginner", "for": "This side argues that should university be free because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "economics-4", "category": "economics", "categoryName": "Money and Work", "icon": "💰", "title": "Should people pay more tax to support public services?", "difficulty": "Beginner", "for": "This side argues that should people pay more tax to support public services because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "economics-5", "category": "economics", "categoryName": "Money and Work", "icon": "💰", "title": "Should cash still be accepted everywhere?", "difficulty": "Intermediate", "for": "This side argues that should cash still be accepted everywhere because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "economics-6", "category": "economics", "categoryName": "Money and Work", "icon": "💰", "title": "Should companies have to share profits with workers?", "difficulty": "Intermediate", "for": "This side argues that should companies have to share profits with workers because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "economics-7", "category": "economics", "categoryName": "Money and Work", "icon": "💰", "title": "Should there be limits on how rich someone can become?", "difficulty": "Intermediate", "for": "This side argues that should there be limits on how rich someone can become because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "economics-8", "category": "economics", "categoryName": "Money and Work", "icon": "💰", "title": "Should students learn about budgeting at school?", "difficulty": "Intermediate", "for": "This side argues that should students learn about budgeting at school because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "economics-9", "category": "economics", "categoryName": "Money and Work", "icon": "💰", "title": "Should online shopping be taxed more?", "difficulty": "Intermediate", "for": "This side argues that should online shopping be taxed more because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "economics-10", "category": "economics", "categoryName": "Money and Work", "icon": "💰", "title": "Should small businesses receive more support?", "difficulty": "Advanced", "for": "This side argues that should small businesses receive more support because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "culture-1", "category": "culture", "categoryName": "Culture and Creativity", "icon": "🎭", "title": "Should art and music be as important as maths and English?", "difficulty": "Beginner", "for": "This side argues that should art and music be as important as maths and English because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "culture-2", "category": "culture", "categoryName": "Culture and Creativity", "icon": "🎭", "title": "Should books ever be banned?", "difficulty": "Beginner", "for": "This side argues that should books ever be banned because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "culture-3", "category": "culture", "categoryName": "Culture and Creativity", "icon": "🎭", "title": "Should films have stricter age ratings?", "difficulty": "Beginner", "for": "This side argues that should films have stricter age ratings because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "culture-4", "category": "culture", "categoryName": "Culture and Creativity", "icon": "🎭", "title": "Should schools have more drama lessons?", "difficulty": "Beginner", "for": "This side argues that should schools have more drama lessons because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "culture-5", "category": "culture", "categoryName": "Culture and Creativity", "icon": "🎭", "title": "Should everyone learn a musical instrument?", "difficulty": "Intermediate", "for": "This side argues that should everyone learn a musical instrument because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "culture-6", "category": "culture", "categoryName": "Culture and Creativity", "icon": "🎭", "title": "Should museums return historical objects to their original countries?", "difficulty": "Intermediate", "for": "This side argues that should museums return historical objects to their original countries because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "culture-7", "category": "culture", "categoryName": "Culture and Creativity", "icon": "🎭", "title": "Should street art be protected?", "difficulty": "Intermediate", "for": "This side argues that should street art be protected because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "culture-8", "category": "culture", "categoryName": "Culture and Creativity", "icon": "🎭", "title": "Should competitions give prizes for creativity, not just winning?", "difficulty": "Intermediate", "for": "This side argues that should competitions give prizes for creativity, not just winning because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "culture-9", "category": "culture", "categoryName": "Culture and Creativity", "icon": "🎭", "title": "Should reading for pleasure be part of the school day?", "difficulty": "Intermediate", "for": "This side argues that should reading for pleasure be part of the school day because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}, {"id": "culture-10", "category": "culture", "categoryName": "Culture and Creativity", "icon": "🎭", "title": "Should public money support theatres and galleries?", "difficulty": "Advanced", "for": "This side argues that should public money support theatres and galleries because it could improve fairness, safety or opportunity.", "against": "This side argues against the motion because it may create costs, limits or unintended problems.", "evidence": "Use a real example, a school situation, a news case, a survey result or a statistic.", "rebuttal": "Although the other side raises a concern, it does not prove that the benefits are outweighed."}];
+const CATEGORIES = {"education": {"name": "Education", "icon": "📚"}, "technology": {"name": "Technology and Media", "icon": "💻"}, "society": {"name": "Society and Life", "icon": "🌍"}, "environment": {"name": "Environment and Animals", "icon": "🌱"}, "health": {"name": "Health and Wellbeing", "icon": "🏃"}, "ethics": {"name": "Ethics and Rights", "icon": "⚖️"}, "economics": {"name": "Money and Work", "icon": "💰"}, "culture": {"name": "Culture and Creativity", "icon": "🎭"}};
+const mentorTips = [
+  "Use Point → Reason → Evidence → Link.",
+  "A strong rebuttal answers the other side directly.",
+  "Do not just say your side is good. Explain why it matters more.",
+  "Examples make arguments easier to believe.",
+  "Speak slowly. Confidence is clearer than speed."
+];
+const aiOpeners = {
+  friendly:["Nice start!","Interesting idea!","I see your point."],
+  captain:["That is reasonable, but I see a weakness.","Your argument has potential.","Let me challenge that."],
+  champion:["I am not fully convinced yet.","That needs stronger weighing.","A national-level debater would challenge this."],
+  judge:["As a judge, I need clearer proof.","I am looking for impact and evidence.","This argument needs more comparison."]
+};
+let debateRounds = 0, debateScoreTotal = 0;
+
+let phoenixPoints = Number(localStorage.getItem("phoenixPoints") || "0");
+let phoenixMissions = Number(localStorage.getItem("phoenixMissions") || "0");
+
+function scrollToSection(id){
+  const section = document.getElementById(id);
+  if(section){
+    section.scrollIntoView({behavior:"smooth", block:"start"});
+  }
+}
+
+function rankFromPoints(points){
+  if(points >= 300) return "Champion";
+  if(points >= 200) return "Rising Phoenix";
+  if(points >= 120) return "Young Phoenix";
+  if(points >= 60) return "Hatchling";
+  return "Egg";
+}
+
+function updatePointsDisplay(){
+  const total = document.getElementById("pointsTotal");
+  const missions = document.getElementById("missionCount");
+  const rank = document.getElementById("rankName");
+  if(total) total.textContent = phoenixPoints;
+  if(missions) missions.textContent = phoenixMissions;
+  if(rank) rank.textContent = rankFromPoints(phoenixPoints);
+  localStorage.setItem("phoenixPoints", String(phoenixPoints));
+  localStorage.setItem("phoenixMissions", String(phoenixMissions));
+}
+
+function addPoints(amount, reason){
+  phoenixPoints += amount;
+  updatePointsDisplay();
+  const toast = document.getElementById("pointsToast");
+  if(toast){
+    toast.textContent = `+${amount} Phoenix Points${reason ? " — " + reason : ""}`;
+    toast.style.display = "block";
+    setTimeout(()=>{toast.style.display="none";}, 1800);
+  }
+}
+
+function hasReward(key){
+  return localStorage.getItem("reward_" + key) === "done";
+}
+
+function addPointsOnce(key, amount, reason){
+  if(hasReward(key)){
+    return false;
+  }
+  localStorage.setItem("reward_" + key, "done");
+  addPoints(amount, reason);
+  return true;
+}
+
+function showAlreadyCollected(message){
+  const toast = document.getElementById("pointsToast");
+  if(toast){
+    toast.textContent = message || "Points already collected.";
+    toast.style.display = "block";
+    setTimeout(()=>{toast.style.display="none";}, 1800);
+  }
+}
+
+
+
+function showAcademyLesson(level){
+  const panel = document.getElementById("academyLessonPanel");
+  if(!panel) return;
+
+  const lessons = {
+    beginner: {
+      title: "Beginner Pathway — Start here",
+      intro: "This pathway is for learning the basics of debating.",
+      items: [
+        ["1. What is a motion?", "A motion is the debate topic. For example: Should homework be banned?"],
+        ["2. Pick a side", "You are either for the motion or against the motion."],
+        ["3. Make a point", "Say one clear reason why your side is right."],
+        ["4. Explain it", "Use because, so, or this means to develop your idea."],
+        ["5. Add an example", "Examples make your argument easier to understand."],
+        ["Mini task", "Create one point using: I believe... because..."]
+      ],
+      points: 15
+    },
+    intermediate: {
+      title: "Intermediate Pathway — Build skill",
+      intro: "This pathway helps you improve structure, evidence and rebuttal.",
+      items: [
+        ["1. Use evidence", "Add a statistic, example, expert view or real-life situation."],
+        ["2. Signpost clearly", "Use phrases like my first point is, however, and therefore."],
+        ["3. Rebut directly", "Answer the other side instead of just repeating your own point."],
+        ["4. Compare impacts", "Explain why your point matters more than the other side’s point."],
+        ["5. Build confidence", "Speak slowly and pause after important points."],
+        ["Mini task", "Write one rebuttal using: Although they say..., I argue..."]
+      ],
+      points: 20
+    },
+    advanced: {
+      title: "Advanced Pathway — Challenge",
+      intro: "This pathway is for stronger debaters who want to win harder debates.",
+      items: [
+        ["1. Weigh arguments", "Explain why your side has the bigger impact."],
+        ["2. Frame the debate", "Tell the judge what the debate should really be about."],
+        ["3. Prioritise", "Choose your strongest arguments instead of using too many weak ones."],
+        ["4. Attack assumptions", "Challenge hidden ideas behind the other side’s argument."],
+        ["5. Finish powerfully", "End with a clear comparison of why your side wins."],
+        ["Mini task", "Write a final sentence beginning: On balance, our side wins because..."]
+      ],
+      points: 25
+    }
+  };
+
+  const chosen = lessons[level];
+  panel.innerHTML = `
+    <h3>${chosen.title}</h3>
+    <p>${chosen.intro}</p>
+    <div class="lesson-list">
+      ${chosen.items.map(item => `
+        <div class="lesson-item">
+          <strong>${item[0]}</strong>
+          <p>${item[1]}</p>
+        </div>
+      `).join("")}
+    </div>
+    <button class="btn" type="button" onclick="completeAcademyLesson('${level}', ${chosen.points})">Complete this lesson +${chosen.points} points</button>
+  `;
+
+  panel.scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+function completeAcademyLesson(level, points){
+  const key = "academyLesson_" + level;
+  if(localStorage.getItem(key)==="done"){
+    alert("You have already collected points for this lesson.");
+    return;
+  }
+  localStorage.setItem(key, "done");
+  addPoints(points, "Academy lesson completed");
+}
+
+function mentorTip(){document.getElementById("mentorText").textContent = mentorTips[Math.floor(Math.random()*mentorTips.length)];}
+function unlock(id){const el=document.getElementById(id); if(el) el.classList.add("unlocked"); checkChampion();}
+function checkChampion(){if(["achMission","achFolder","achAI","achFallacy","achTeam"].every(id=>document.getElementById(id)?.classList.contains("unlocked"))) unlock("achChampion");}
+
+function buildLibrary(){
+  const mount=document.getElementById("libraryMount"), select=document.getElementById("categoryFilter"), aiTopic=document.getElementById("aiTopic");
+  Object.entries(CATEGORIES).forEach(([key,c])=>{select.innerHTML+=`<option value="${key}">${c.name}</option>`;});
+  aiTopic.innerHTML = TOPICS.map(t=>`<option>${t.title}</option>`).join("");
+  mount.innerHTML = Object.entries(CATEGORIES).map(([key,c])=>{
+    const items=TOPICS.filter(t=>t.category===key);
+    return `<div class="folder-panel" data-folder="${key}">
+      <button class="folder-button" type="button" onclick="openFolder('${key}')"><span class="folder-tab"></span><span class="folder-icon">${c.icon}</span><span class="folder-title"><strong>${c.name}</strong><small>${items.length} debate topics</small></span></button>
+      <div class="folder-content" id="folder-${key}">
+        <div class="folder-heading"><div><h3>${c.icon} ${c.name}</h3><p>Explore both sides, evidence ideas and rebuttals.</p></div><button class="btn secondary" type="button" onclick="closeFolder('${key}')">Close folder</button></div>
+        <div class="grid">${items.map(topicCard).join("")}</div>
+      </div>
+    </div>`;
+  }).join("");
+}
+function topicCard(t){return `<article class="card topic-card" data-search="${(t.title+' '+t.categoryName+' '+t.difficulty).toLowerCase()}"><span class="pill">${t.difficulty}</span><h3>${t.title}</h3><div class="topic-summary"><div class="side pro"><strong>For:</strong> ${t.for}</div><div class="side con"><strong>Against:</strong> ${t.against}</div></div><details><summary>Read more</summary><p><strong>Evidence idea:</strong> ${t.evidence}</p><p><strong>Rebuttal idea:</strong> ${t.rebuttal}</p></details></article>`;}
+function openFolder(key){
+  document.getElementById("folder-"+key)?.classList.add("open");
+  if(addPointsOnce("folder_"+key, 5, "Library folder opened")){
+    unlock("achFolder");
+  }else{
+    showAlreadyCollected("Folder points already collected.");
+  }
+}
+function closeFolder(key){document.getElementById("folder-"+key)?.classList.remove("open");}
+function filterTopics(){
+  const q=document.getElementById("topicSearch").value.toLowerCase(), cat=document.getElementById("categoryFilter").value;
+  document.querySelectorAll(".folder-panel").forEach(f=>{
+    const fcat=f.dataset.folder; let count=0;
+    f.querySelectorAll(".topic-card").forEach(card=>{const show=(cat==="all"||cat===fcat)&&card.dataset.search.includes(q); card.style.display=show?"block":"none"; if(show) count++;});
+    f.style.display=count?"block":"none"; if(q&&count) f.querySelector(".folder-content").classList.add("open");
+  });
+}
+let currentMission = null;
+let missionInterval = null;
+
+function generateMission(){
+  const t=TOPICS[Math.floor(Math.random()*TOPICS.length)];
+  const sides=["For the motion","Against the motion"];
+  const roles=["Opening Speaker","Rebuttal Speaker","Summary Speaker","Evidence Finder"];
+  const missionTimes=[
+    {label:"1 minute", seconds:60, points:10},
+    {label:"2 minutes", seconds:120, points:20},
+    {label:"4 minutes", seconds:240, points:35}
+  ];
+  const bonuses=["Use one statistic","Use one rhetorical question","Use one rebuttal","Use one real-life example"];
+  const chosenTime = missionTimes[Math.floor(Math.random()*missionTimes.length)];
+
+  const missionId = "mission_" + Date.now() + "_" + Math.floor(Math.random()*99999);
+  const unlockAt = Date.now() + (chosenTime.seconds * 1000);
+
+  currentMission = {
+    id: missionId,
+    topic: t.title,
+    side: sides[Math.floor(Math.random()*sides.length)],
+    role: roles[Math.floor(Math.random()*roles.length)],
+    time: chosenTime.label,
+    seconds: chosenTime.seconds,
+    points: chosenTime.points,
+    bonus: bonuses[Math.floor(Math.random()*bonuses.length)],
+    unlockAt: unlockAt
+  };
+
+  document.getElementById("missionOutput").innerHTML=`
+    <h3>Mission</h3>
+    <p><strong>Topic:</strong> ${currentMission.topic}</p>
+    <p><strong>Your side:</strong> ${currentMission.side}</p>
+    <p><strong>Your role:</strong> ${currentMission.role}</p>
+    <p><strong>Time:</strong> ${currentMission.time}</p>
+    <p><strong>Bonus:</strong> ${currentMission.bonus}</p>
+    <p><strong>Reward:</strong> +${currentMission.points} Phoenix Points</p>
+    <div id="missionTimer" class="mission-timer">Mission timer loading...</div>
+    <button id="completeMissionBtn" class="btn locked" type="button" onclick="completeMission()" disabled>Complete Mission</button>
+    <p><small>You can collect the points after the timer finishes. This prevents point spamming.</small></p>
+  `;
+
+  startMissionCountdown();
+}
+
+function startMissionCountdown(){
+  clearInterval(missionInterval);
+  missionInterval = setInterval(()=>{
+    if(!currentMission) return;
+
+    const remaining = Math.max(0, Math.ceil((currentMission.unlockAt - Date.now())/1000));
+    const timer = document.getElementById("missionTimer");
+    const btn = document.getElementById("completeMissionBtn");
+
+    if(timer){
+      const mins = Math.floor(remaining/60);
+      const secs = remaining % 60;
+      timer.textContent = remaining > 0
+        ? `Time left before points unlock: ${mins}:${String(secs).padStart(2,"0")}`
+        : "Mission complete! You can now collect your points.";
+    }
+
+    if(remaining <= 0){
+      clearInterval(missionInterval);
+      if(btn){
+        btn.disabled = false;
+        btn.classList.remove("locked");
+      }
+    }
+  }, 500);
+}
+
+function completeMission(){
+  if(!currentMission){
+    alert("Please start a mission first.");
+    return;
+  }
+
+  const remaining = currentMission.unlockAt - Date.now();
+  if(remaining > 0){
+    alert("The mission timer has not finished yet.");
+    return;
+  }
+
+  const collected = addPointsOnce(currentMission.id, currentMission.points, "Mission completed");
+  if(!collected){
+    showAlreadyCollected("You have already collected points for this mission.");
+    return;
+  }
+
+  phoenixMissions += 1;
+  updatePointsDisplay();
+  unlock("achMission");
+
+  const btn = document.getElementById("completeMissionBtn");
+  if(btn){
+    btn.disabled = true;
+    btn.classList.add("locked");
+    btn.textContent = "Points Collected";
+  }
+}
+
+function submitDebateArgument(){
+  const arg=document.getElementById("userArgument").value.trim(); if(!arg){alert("Please write your argument first.");return;}
+  const topic=document.getElementById("aiTopic").value, side=document.getElementById("aiSide").value, p=document.getElementById("aiPersonality").value, chat=document.getElementById("debateChat");
+  const words=arg.split(/\s+/).length, evidence=/because|example|evidence|statistics|research|data/i.test(arg), link=/therefore|so|this means|overall|on balance/i.test(arg);
+  let score=4+(words>25?2:0)+(evidence?2:0)+(link?1:0); score=Math.min(score,10); debateRounds++; debateScoreTotal+=score;
+  const challenges=["Can you prove that with stronger evidence?","What would the other side say to that?","Why does your point matter more than the opposing concern?","Can you give a real-life example?","What is the long-term impact?"];
+  const rebuttals=["However, your argument may ignore practical problems.","That is interesting, but it may not apply to everyone.","The other side could say that the costs are too high.","I understand your point, but fairness also matters here.","That sounds persuasive, but it needs clearer evidence."];
+  chat.innerHTML += `<div class="message user"><strong>You:</strong> ${escapeHTML(arg)}</div><div class="message ai"><strong>AI Opponent:</strong> ${aiOpeners[p][Math.floor(Math.random()*aiOpeners[p].length)]} ${rebuttals[Math.floor(Math.random()*rebuttals.length)]} ${challenges[Math.floor(Math.random()*challenges.length)]}</div><div class="message ai"><strong>AI Coach:</strong> ${evidence?'Good use of evidence.':'Try adding evidence or an example.'} ${link?'Your link is clear.':'Link back to the motion more clearly.'}</div>`;
+  document.getElementById("aiScore").innerHTML=`<strong>Round score:</strong> ${score}/10<br>${score>=8?'Excellent — now add a rebuttal.':score>=6?'Good start — add more detail.':'Keep going: Point → Reason → Evidence → Link.'}`;
+  document.getElementById("userArgument").value=""; chat.scrollTop=chat.scrollHeight; const lastAIReward = Number(localStorage.getItem("lastAIRewardTime") || "0");
+  if(Date.now() - lastAIReward > 120000){
+    localStorage.setItem("lastAIRewardTime", String(Date.now()));
+    addPoints(10, "AI debate practice");
+    const lastAIReward = Number(localStorage.getItem("lastAIRewardTime") || "0");
+  if(Date.now() - lastAIReward > 120000){
+    localStorage.setItem("lastAIRewardTime", String(Date.now()));
+    addPoints(10, "AI debate practice");
+    unlock("achAI");
+  }
+  }
+}
+function finishDebate(){
+  const avg=debateRounds?Math.round(debateScoreTotal/debateRounds):0;
+  document.getElementById("debateChat").innerHTML += `<div class="message ai"><strong>AI Judge:</strong> Debate finished. Average score: ${avg}/10. ${avg>=8?'You win this debate!':'The AI narrowly wins this time — try again with more evidence and rebuttal.'}</div>`;
+}
+function resetDebate(){debateRounds=0;debateScoreTotal=0;document.getElementById("debateChat").innerHTML='<div class="message ai"><strong>AI Opponent:</strong> Choose a topic and write your first argument.</div>';document.getElementById("aiScore").textContent="Your feedback score will appear here.";}
+function escapeHTML(text){return text.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));}
+function toggleFallacy(btn){
+  const note=btn.nextElementSibling;
+  note.style.display=note.style.display==="block"?"none":"block";
+  const title = btn.closest(".fallacy-card")?.querySelector("h3")?.textContent || "fallacy";
+  const key = "fallacy_" + title.replace(/\s+/g,"_").toLowerCase();
+  if(addPointsOnce(key, 5, "Fallacy learnt")){
+    unlock("achFallacy");
+  }else{
+    showAlreadyCollected("Fallacy points already collected.");
+  }
+}
+function recommendRoles(){
+  const size=document.getElementById("teamSize").value, style=document.getElementById("teamStyle").value, out=document.getElementById("roleOutput");
+  const roles={1:["Speaker and researcher"],2:["Opening Speaker","Rebuttal Speaker"],3:["Opening Speaker","Evidence Speaker","Summary Speaker"],4:["Captain","Researcher","Main Speaker","Rebuttal Speaker"],5:["Captain","Evidence Finder","Speech Coach","Main Speaker","Timekeeper"],6:["Captain","Lead Researcher","Statistician","Opening Speaker","Rebuttal Specialist","Summary Speaker"]};
+  if(!size){out.textContent="Choose a team size first.";return;}
+  out.innerHTML=`<ol>${roles[size].map(r=>`<li><strong>${r}:</strong> helps the team with ${style} and clear organisation.</li>`).join("")}</ol>`;
+  if(addPointsOnce("team_"+size+"_"+style, 10, "Team built")){
+    unlock("achTeam");
+  }else{
+    showAlreadyCollected("Team points already collected for this setup.");
+  }
+}
+document.addEventListener("DOMContentLoaded",()=>{updatePointsDisplay();buildLibrary();document.getElementById("topicSearch").addEventListener("input",filterTopics);document.getElementById("categoryFilter").addEventListener("change",filterTopics);});
 </script>
-</body>
-</html>
+</body></html>
